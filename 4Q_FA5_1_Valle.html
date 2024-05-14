@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shape Generator</title>
+    
+</head>
+<body>
+    <h1>Shape Generator</h1>
+    <input type="text" id="number-input" placeholder="Enter a number">
+    <button onclick="generateShape()" class="button">Generate Shape</button>
+    <div id="shape-container"></div>
+
+    <script>
+        function isNumber(value) {
+            return !isNaN(value) && value.trim() !== '';
+        }
+
+        function getNumberInput() {
+            const input = document.getElementById('number-input').value;
+            if (isNumber(input)) {
+                return parseInt(input, 10);
+            } else {
+                alert("Please enter a valid number.");
+                return null;
+            }
+        }
+
+        function generateShape() {
+            const number = getNumberInput();
+            if (number !== null) {
+                const shapeContainer = document.getElementById('shape-container');
+                let shape = `Number inputted: ${number}\n\n`;
+
+                if (number % 2 === 1) {  // Odd number, print rectangle
+                    for (let i = number; i > 0; i--) {
+                        shape += Array(number).fill(i).join(' ') + '\n';
+                    }
+                } else {  // Even number, print flipped triangle
+                    for (let i = number; i > 0; i--) {
+                        shape += Array(i).fill(i).join(' ') + '\n';
+                    }
+                }
+
+                shapeContainer.textContent = shape;
+            }
+        }
+    </script>
+</body>
+</html>
