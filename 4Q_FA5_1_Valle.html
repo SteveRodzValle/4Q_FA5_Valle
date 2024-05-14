@@ -33,11 +33,11 @@
                 const shapeContainer = document.getElementById('shape-container');
                 let shape = `Number inputted: ${number}\n\n`;
 
-                if (number % 2 === 1) {  // Odd number, print rectangle
+                if (number % 2 === 1) {  
                     for (let i = number; i > 0; i--) {
                         shape += Array(number).fill(i).join(' ') + '\n';
                     }
-                } else {  // Even number, print flipped triangle
+                } else {  
                     for (let i = number; i > 0; i--) {
                         shape += Array(i).fill(i).join(' ') + '\n';
                     }
